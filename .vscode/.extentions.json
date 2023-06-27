@@ -6,6 +6,7 @@
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
     "shardulm94.trailing-spaces",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "ms-vscode.cpptools-extension-pack"
   ]
 }

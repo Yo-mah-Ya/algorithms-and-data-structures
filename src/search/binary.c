@@ -1,11 +1,10 @@
-#include<stdio.h>
-#include<stdalign.h>
-#include<stdbool.h>
-#include<math.h>
-#include<assert.h>
+#include <assert.h>
+#include <math.h>
+#include <stdalign.h>
+#include <stdbool.h>
+#include <stdio.h>
 
-int recursive(int arr[], int x, int low, int high)
-{
+int recursive(int arr[], int x, int low, int high) {
     const int mid = floor(low + (high - low) / 2);
 
     if (high >= low) {
@@ -22,10 +21,8 @@ int recursive(int arr[], int x, int low, int high)
     return -1;
 }
 
-int iterative(int arr[], int x, int low, int high)
-{
-    while (low <= high)
-    {
+int iterative(int arr[], int x, int low, int high) {
+    while (low <= high) {
         const int mid = floor(low + (high - low) / 2);
         if (arr[mid] == x) {
             return mid;
@@ -40,18 +37,15 @@ int iterative(int arr[], int x, int low, int high)
     return -1;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     const int length = sizeof(arr) / sizeof(arr[0]);
-    for (int i = 0; i < length; i++)
-    {
+    for (int i = 0; i < length; i++) {
         assert(iterative(arr, 3, 0, length - 1) == 2);
         assert(recursive(arr, 11, 0, length - 1) == -1);
         assert(iterative(arr, 3, 0, length - 1) == 2);
         assert(recursive(arr, 11, 0, length - 1) == -1);
     }
-
 
     return 0;
 }
