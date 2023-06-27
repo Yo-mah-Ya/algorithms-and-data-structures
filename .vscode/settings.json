@@ -1,0 +1,39 @@
+{
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules/": true,
+    "npm-packages-offline-cache": true,
+    "coverage": true,
+    "build": true
+  },
+  // "eslint.packageManager": "yarn",
+  // "eslint.validate": ["javascript", "typescript"], // No need above or equal to Version 2.0.4
+  "eslint.lintTask.enable": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "npm.packageManager": "yarn",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript][typescriptreact][javascript][javascriptreact][json][graphql][vue][markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "cSpell.enabled": true,
+  "cSpell.words": ["camelcase", "tsbuildinfo"],
+  "files.associations": {
+    "stdio.h": "c",
+    "iostream": "cpp",
+    "cstdlib": "cpp",
+    "cstdio": "cpp",
+    "locale": "cpp",
+    "ostream": "c",
+    "new": "c",
+    "stdlib.h": "c",
+    "_malloc.h": "c",
+    "assert.h": "c"
+  }
+}
