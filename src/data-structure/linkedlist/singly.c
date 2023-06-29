@@ -1,7 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
 #include <assert.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Node {
     int data;
@@ -10,44 +9,39 @@ typedef struct Node {
 
 static Node *node = NULL;
 
-Node *create_new_node(int data)
-{
-    Node *node = (Node*)malloc(sizeof(Node));
+Node *create_new_node(int data) {
+    Node *node = (Node *)malloc(sizeof(Node));
     node->data = data;
     node->next = NULL;
     return node;
 };
 
-void add_at_first(int data)
-{
-    Node *new_node =create_new_node(data);
-    if(node == NULL){
+void add_at_first(int data) {
+    Node *new_node = create_new_node(data);
+    if (node == NULL) {
         node = new_node;
-    }else {
+    } else {
         new_node->next = node;
         node = new_node;
     }
 };
 
-void add_at_last(int data)
-{
-    Node *new_node =create_new_node(data);
-    if(node == NULL){
+void add_at_last(int data) {
+    Node *new_node = create_new_node(data);
+    if (node == NULL) {
         node = new_node;
         return;
     }
 
     Node *head = node;
-    while (head->next != NULL)
-    {
+    while (head->next != NULL) {
         head = head->next;
     }
     head->next = new_node;
 };
 
-void delete_at_first()
-{
-    if(node == NULL){
+void delete_at_first() {
+    if (node == NULL) {
         return;
     }
     Node *head = node;
@@ -55,14 +49,13 @@ void delete_at_first()
     free(head);
 }
 
-void delete_at_last()
-{
-    if(node == NULL){
+void delete_at_last() {
+    if (node == NULL) {
         return;
     }
     Node *head = node;
     Node *prev = node;
-    while(head->next != NULL){
+    while (head->next != NULL) {
         prev = head;
         head = head->next;
     }
@@ -70,40 +63,36 @@ void delete_at_last()
     free(head);
 }
 
+void delete_all() { node = NULL; }
 
-void delete_all()
-{
-    node = NULL;
-}
-
-void deleteNthNodeListFromEnd(int n)
-{
-    if(node == NULL){
+void deleteNthNodeListFromEnd(int n) {
+    if (node == NULL) {
         return;
     }
-    Node* iter = node;
-	int len = 0, i = 1;
-	while(iter != NULL) {
+    Node *iter = node;
+    int len = 0, i = 1;
+    while (iter != NULL) {
         iter = iter->next;
-        len++;    // finding the length of linked list
+        len++;  // finding the length of linked list
     }
-	if(len == n) {
-        node = node->next;          // if head itself is to be deleted, just return head -> next
+    if (len == n) {
+        node = node->next;  // if head itself is to be deleted, just return head
+                            // -> next
         return;
     }
-	for(iter = node; i < len - n; i++) {
-        iter = iter->next; // iterate first len-n nodes
+    for (iter = node; i < len - n; i++) {
+        iter = iter->next;  // iterate first len-n nodes
     }
-	iter->next = iter->next->next;      // remove the nth node from the end
+    iter->next = iter->next->next;  // remove the nth node from the end
 }
 
-void show_all_data_separately(char *operation_name)
-{
+void show_all_data_separately(char *operation_name) {
     printf("%s\n", operation_name);
     Node *head = node;
     int index = 0;
-    while(head != NULL){
-        printf("index: %d, data: %d, next: %p\n",index, head->data, head->next);
+    while (head != NULL) {
+        printf("index: %d, data: %-2d, head: %-11p, next: %-11p\n", index,
+               head->data, head, head->next);
         head = head->next;
         index++;
     }
@@ -111,14 +100,11 @@ void show_all_data_separately(char *operation_name)
     printf("\n");
 }
 
-
-void reverse()
-{
+void reverse() {
     Node *prev = NULL;
     Node *current = node;
     Node *next = NULL;
-    while (current != NULL)
-    {
+    while (current != NULL) {
         next = current->next;
         current->next = prev;
         prev = current;
@@ -127,8 +113,7 @@ void reverse()
     node = prev;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     add_at_first(1);
     add_at_first(2);
     add_at_first(3);
@@ -149,7 +134,6 @@ int main(int argc, char const *argv[])
     delete_all();
     show_all_data_separately("delete_all");
 
-
     add_at_last(1);
     add_at_last(2);
     add_at_last(3);
@@ -157,16 +141,15 @@ int main(int argc, char const *argv[])
     add_at_last(5);
     deleteNthNodeListFromEnd(2);
     show_all_data_separately("1: deleteNthNodeListFromEnd");
-    delete_all(); // reset
+    delete_all();  // reset
     add_at_last(1);
     deleteNthNodeListFromEnd(1);
     show_all_data_separately("2: deleteNthNodeListFromEnd");
-    delete_all(); // reset
+    delete_all();  // reset
     add_at_last(1);
     add_at_last(2);
     deleteNthNodeListFromEnd(1);
     show_all_data_separately("3: deleteNthNodeListFromEnd");
-
 
     return 0;
 }
