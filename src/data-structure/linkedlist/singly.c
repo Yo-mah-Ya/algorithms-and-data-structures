@@ -86,6 +86,17 @@ void deleteNthNodeListFromEnd(int n) {
     iter->next = iter->next->next;  // remove the nth node from the end
 }
 
+int is_circular(Node *node) {
+    if (node == NULL) {
+        return 1;
+    }
+    Node *head = node->next;
+    while (head != NULL && head != node) {
+        head = head->next;
+    }
+    return head == node;
+}
+
 void show_all_data_separately(char *operation_name) {
     printf("%s\n", operation_name);
     Node *head = node;
@@ -151,5 +162,12 @@ int main(int argc, char const *argv[]) {
     deleteNthNodeListFromEnd(1);
     show_all_data_separately("3: deleteNthNodeListFromEnd");
 
+    delete_all();
+    add_at_last(1);
+    add_at_last(2);
+    add_at_last(3);
+    assert(is_circular(node) == 0);
+    node->next->next = node;
+    assert(is_circular(node) == 1);
     return 0;
 }
