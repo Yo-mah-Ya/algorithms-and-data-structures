@@ -51,27 +51,27 @@ int main(int argc, char const *argv[]) {
 
     Node node = {};
     Node *current = &node;
-    Node *resultNode;
+    Node *result_node;
     /**
      * add_at_first
      */
     current = current->next = create_new_node(1);
     current = current->next = create_new_node(2);
     current = current->next = create_new_node(3);
-    resultNode = node.next;
-    show_all_data_separately(resultNode, "add_at_first");
-    assert(resultNode->data == 1 && resultNode->next->data == 2 &&
-           resultNode->next->next->data == 3 &&
-           resultNode->next->next->next == NULL);
+    result_node = node.next;
+    show_all_data_separately(result_node, "add_at_first");
+    assert(result_node->data == 1 && result_node->next->data == 2 &&
+           result_node->next->next->data == 3 &&
+           result_node->next->next->next == NULL);
 
     /**
      * reverse
      */
-    resultNode = reverse(node.next);
-    show_all_data_separately(resultNode, "reverse");
-    assert(resultNode->data == 3 && resultNode->next->data == 2 &&
-           resultNode->next->next->data == 1 &&
-           resultNode->next->next->next == NULL);
+    result_node = reverse(node.next);
+    show_all_data_separately(result_node, "reverse");
+    assert(result_node->data == 3 && result_node->next->data == 2 &&
+           result_node->next->next->data == 1 &&
+           result_node->next->next->next == NULL);
 
     return 0;
 }

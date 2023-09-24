@@ -119,11 +119,11 @@ void purge(Node *root) {
     }
 }
 
-void inOrder(Node *root) {
+void in_order(Node *root) {
     if (root != NULL) {
-        inOrder(root->left);
+        in_order(root->left);
         printf("[ %d ]\n", root->data);
-        inOrder(root->right);
+        in_order(root->right);
     }
 }
 
@@ -137,8 +137,8 @@ int main(int argc, char const *argv[]) {
     find(root, 3) ? printf("The value is in the tree.\n")
                   : printf("The value is not in the tree.\n");
     printf("Current height of the tree is: %d\n", height(root));
-    inOrder(root);
+    in_order(root);
     delete (root, 3);
-    inOrder(root);
+    in_order(root);
     return 0;
 }

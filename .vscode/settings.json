@@ -4,26 +4,14 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
-    "**/.DS_Store": true,
-    "node_modules": true,
-    "npm-packages-offline-cache": true,
-    "build": true,
-    "coverage": true
+    "**/.DS_Store": true
   },
-  "editor.formatOnSave": true,
-  // "eslint.packageManager": "yarn",
-  // "eslint.validate": ["javascript", "typescript"], // No need above or equal to Version 2.0.4
-  "eslint.lintTask.enable": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "npm.packageManager": "yarn",
-  "[typescript][typescriptreact][javascript][javascriptreact][json][graphql][vue][markdown]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.default.cppStandard": "c++23",
   "cSpell.enabled": true,
-  "cSpell.words": ["camelcase", "tsbuildinfo"],
+  "cSpell.words": [],
+  "editor.formatOnSave": true,
   "files.associations": {
     "stdio.h": "c",
     "iostream": "cpp",
@@ -104,6 +92,10 @@
     "unistd.h": "c",
     "socket.h": "c",
     "string.h": "c",
-    "stddef.h": "c"
+    "stddef.h": "c",
+    "climits": "cpp",
+    "stdlib.h": "c",
+    "assert.h": "c",
+    "__assert": "cpp"
   }
 }

@@ -1,6 +1,31 @@
 ---
-Checks: "-*,google-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.*,cppcoreguidelines-*,-cppcoreguidelines-avoid-magic-numbers,-cppcoreguidelines-pro-bounds-*,openmp-*,performance-*,portability-*,modernize-*,-modernize-use-trailing-*"
-WarningsAsErrors: "*,-google-readability-*,-google-explicit-constructor,-modernize-*,modernize-avoid-c-arrays,-performance-move-const-arg,-performance-noexcept-move-constructor,-performance-unnecessary-value-param,-cppcoreguidelines-init-variables,-cppcoreguidelines-pro-*,-cppcoreguidelines-owning-memory,-clang-analyzer-cplusplus.Move"
-HeaderFilterRegex: ""
-AnalyzeTemporaryDtors: false
-FormatStyle: "{ BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: true, ColumnLimit: 80, AccessModifierOffset: -3, AlignConsecutiveMacros: true }"
+Checks: "-*,clang-diagnostic-*,llvm-*,misc-*,-misc-const-correctness,-misc-unused-parameters,-misc-non-private-member-variables-in-classes,-misc-no-recursion,-misc-use-anonymous-namespace,readability-identifier-naming"
+CheckOptions:
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.GlobalConstantPointerCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+  # Exclude from scanning as this is an exported symbol used for fuzzing
+  # throughout the code base.
+  - key: readability-identifier-naming.FunctionIgnoredRegexp
+    value: "LLVMFuzzerTestOneInput"
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.UnionCase
+    value: camelBack
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.IgnoreMainLikeFunctions
+    value: 1
+  - key: readability-redundant-member-init.IgnoreBaseInCopyConstructors
+    value: 1
+  - key: modernize-use-default-member-init.UseAssignment
+    value: 1

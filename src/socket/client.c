@@ -5,10 +5,10 @@
 #include <unistd.h>
 #define PORT 8080
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     int sock = 0, valread, client_fd;
     struct sockaddr_in serv_addr;
-    char* hello = "Hello from client";
+    char *hello = "Hello from client";
     char buffer[1024] = {0};
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         printf("\n Socket creation error \n");
@@ -23,7 +23,7 @@ int main(int argc, char const* argv[]) {
         return -1;
     }
 
-    if ((client_fd = connect(sock, (struct sockaddr*)&serv_addr,
+    if ((client_fd = connect(sock, (struct sockaddr *)&serv_addr,
                              sizeof(serv_addr))) < 0) {
         fprintf(stderr, "\nConnection Failed \n");
         return -1;

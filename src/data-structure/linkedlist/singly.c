@@ -63,7 +63,7 @@ void delete_at_last(Node *node) {
 
 void delete_all(Node **node) { *node = NULL; }
 
-void deleteNthNodeListFromEnd(Node **node, int n) {
+void delete_nth_node_list_from_end(Node **node, int n) {
     if (*node == NULL) {
         return;
     }
@@ -71,18 +71,18 @@ void deleteNthNodeListFromEnd(Node **node, int n) {
     int len = 0, i = 1;
     while (iter != NULL) {
         iter = iter->next;
-        len++;  // finding the length of linked list
+        len++; // finding the length of linked list
     }
     if (len == n) {
         *node =
-            (*node)->next;  // if head itself is to be deleted, just return head
-                            // -> next
+            (*node)->next; // if head itself is to be deleted, just return head
+                           // -> next
         return;
     }
     for (iter = *node; i < len - n; i++) {
-        iter = iter->next;  // iterate first len-n nodes
+        iter = iter->next; // iterate first len-n nodes
     }
-    iter->next = iter->next->next;  // remove the nth node from the end
+    iter->next = iter->next->next; // remove the nth node from the end
 }
 
 int is_circular(Node *node) {
@@ -206,28 +206,28 @@ int main(int argc, char const *argv[]) {
     assert(node == NULL);
 
     /**
-     * deleteNthNodeListFromEnd
+     * delete_nth_node_list_from_end
      */
     add_at_last(&node, 1);
     add_at_last(&node, 2);
     add_at_last(&node, 3);
     add_at_last(&node, 4);
     add_at_last(&node, 5);
-    deleteNthNodeListFromEnd(&node, 2);
-    show_all_data_separately(&node, "1: deleteNthNodeListFromEnd");
+    delete_nth_node_list_from_end(&node, 2);
+    show_all_data_separately(&node, "1: delete_nth_node_list_from_end");
     assert(node->data == 1 && node->next->data == 2 &&
            node->next->next->data == 3 && node->next->next->next->data == 5 &&
            node->next->next->next->next == NULL);
-    delete_all(&node);  // reset
+    delete_all(&node); // reset
     add_at_last(&node, 1);
-    deleteNthNodeListFromEnd(&node, 1);
-    show_all_data_separately(&node, "2: deleteNthNodeListFromEnd");
+    delete_nth_node_list_from_end(&node, 1);
+    show_all_data_separately(&node, "2: delete_nth_node_list_from_end");
     assert(node == NULL);
-    delete_all(&node);  // reset
+    delete_all(&node); // reset
     add_at_last(&node, 1);
     add_at_last(&node, 2);
-    deleteNthNodeListFromEnd(&node, 1);
-    show_all_data_separately(&node, "3: deleteNthNodeListFromEnd");
+    delete_nth_node_list_from_end(&node, 1);
+    show_all_data_separately(&node, "3: delete_nth_node_list_from_end");
     assert(node->data == 1 && node->next == NULL);
 
     /**

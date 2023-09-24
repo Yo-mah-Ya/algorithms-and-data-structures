@@ -14,9 +14,8 @@ int recursive(int arr[], int x, int low, int high) {
 
         if (x < arr[mid]) {
             return recursive(arr, x, low, mid - 1);
-        } else {
-            return recursive(arr, x, mid + 1, high);
-        }
+        } 
+        return recursive(arr, x, mid + 1, high);
     }
     return -1;
 }

@@ -3,39 +3,39 @@
 #include <iostream>
 #include <map>
 
-bool isIsomorphic(std::string s, std::string t) {
+bool is_isomorphic(std::string s, std::string t) {
     if (s.length() != t.length()) {
         return false;
     }
-    std::map<char, int> sMap;
-    std::map<char, int> tMap;
+    std::map<char, int> s_map;
+    std::map<char, int> t_map;
 
     auto has_key = [&](std::map<char, int> &map, char key) {
         return map.find(key) != map.end();
     };
 
     for (int i = 0; i < s.length(); i++) {
-        if (has_key(sMap, s[i])) {
-            if (!has_key(tMap, t[i])) {
+        if (has_key(s_map, s[i])) {
+            if (!has_key(t_map, t[i])) {
                 return false;
             }
-            if (sMap[s[i]] != tMap[t[i]]) {
+            if (s_map[s[i]] != t_map[t[i]]) {
                 return false;
             }
-        } else if (has_key(tMap, t[i])) {
+        } else if (has_key(t_map, t[i])) {
             return false;
         }
 
-        sMap[s[i]] = i;
-        tMap[t[i]] = i;
+        s_map[s[i]] = i;
+        t_map[t[i]] = i;
     }
     return true;
 }
 
 int main(int argc, char const *argv[]) {
-    assert(isIsomorphic("egg", "add"));
-    assert(isIsomorphic("foo", "bar") == false);
-    assert(isIsomorphic("paper", "title"));
+    assert(is_isomorphic("egg", "add"));
+    assert(is_isomorphic("foo", "bar") == false);
+    assert(is_isomorphic("paper", "title"));
 
     return 0;
 }

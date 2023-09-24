@@ -1,6 +1,6 @@
 #include <iostream>
 #include <set>
-std::string removeDeps(std::string str) {
+std::string remove_deps(std::string str) {
     std::set<char> set;
     for (int i = 0; i < str.length(); i++) {
         set.insert(str[i]);
@@ -13,10 +13,10 @@ std::string removeDeps(std::string str) {
 }
 
 int main(int argc, char const *argv[]) {
-    std::cout << removeDeps("abcd") << std::endl;
-    std::cout << removeDeps("aabbccdd") << std::endl;
-    std::cout << removeDeps("abcddbca") << std::endl;
-    std::cout << removeDeps("abababcdcdcd") << std::endl;
+    std::cout << remove_deps("abcd") << std::endl;
+    std::cout << remove_deps("aabbccdd") << std::endl;
+    std::cout << remove_deps("abcddbca") << std::endl;
+    std::cout << remove_deps("abababcdcdcd") << std::endl;
 
     return 0;
 }
